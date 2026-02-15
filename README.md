@@ -15,6 +15,7 @@ colcon build                        #编译
 4.编译
 5.执行
 
+C++实现
 终端输入：
 ros2 pkg create 00HelloWorld_cpp --build-type ament_cmake --dependencies rclcpp --node-name HelloWorld #创建功能包，注意要在工作空间的src下
 #ros2 pkg create         创建一个功能包
@@ -45,6 +46,23 @@ int main(int argc,char **argv){
 	return 0;
 }
 
+Python实现
+终端输入
+ros2 pkg create 00HelloWorld_python --build-type ament_python --dependencies rclpy --node-name HelloWorld_python
+
+import rclpy
+def main():
+    #初始化
+    rclpy.init()
+    #创建节点
+    node = rclpy.create_node("helloworld_python")
+    #输出日至
+    node.get_logger().info("helloworld(python)")
+    #释放资源
+    rclpy.shutdown()
+
+
+
 colson build                              #编译，在工作空间00HelloWorld_cpp路径下
-. install/setup,bash                      #更新环境变量  或写做 cource install/setup.bash
+. install/setup.bash                      #更新环境变量  或写做 cource install/setup.bash
 ros2 run 00HelloWorld_cpp HelloWorld      #运行工作空间00HelloWorld_cpp  节点HelloWorld
