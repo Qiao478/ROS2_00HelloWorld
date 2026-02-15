@@ -64,5 +64,9 @@ def main():
 
 
 colson build                              #编译，在工作空间00HelloWorld_cpp路径下
+或编译某（几）个文件
+colcon build --packages-select 文件名
+
 . install/setup.bash                      #更新环境变量  或写做 cource install/setup.bash
 ros2 run 00HelloWorld_cpp HelloWorld      #运行工作空间00HelloWorld_cpp  节点HelloWorld
+
